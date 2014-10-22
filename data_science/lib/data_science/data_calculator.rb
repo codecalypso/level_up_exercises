@@ -39,14 +39,30 @@ module DataScience
       ABAnalyzer.confidence_interval(success, trials, 0.95)
     end
 
-    def print_results(cohort)
-      puts "Cohort count: #{calculator.count(cohort)}"
-      puts "Cohort conversion: #{calculator.conversion_rate(cohort)}"
-      puts "Cohort standard error: #{calculator.standard_error(cohort)}"
-      puts "Cohort confidence interval: #{calculator.interval(cohort)}"
+    def table_line(separator = "-")
+     separator * 90
     end
-  end
+
+    def table_heading
+      puts "\t Count  |\t  Conversion \t| Confidence Interval"
+      puts table_line
+    end
+
+    def cohort_type(cohort)
+      if cohort == "A" || cohort == "B"
+       print "Cohort #{cohort}"
+      else
+        print "Invalid choice"
+      end
+    end
+
+    def print_results(cohort)
+      table_heading
+      print "#{cohort_type(cohort)}: #{count(cohort)}  | #{conversion_rate(cohort)} \t| #{interval(cohort)}"
+    end
+ end
 end
 
-data = DataScience::Loader.new("data/source_data.json").parse_json
-DataScience::DataCalculator.new(data)
+data = DataScience::Loader.new("../source_data.json").parse_json
+calculator = DataScience::DataCalculator.new(data)
+puts calculator.print_results("A")
