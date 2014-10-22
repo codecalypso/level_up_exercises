@@ -1,8 +1,23 @@
-bad test
+bad test -
+sad test -
 
 applying coupon before purchase
-requesting more than what's in inventory
+requesting more than what's what's available
 typing in non numeric info
 removing item that is not there
 adding something that is not available
-Clicking add without having made any selections
+clicking add without having made any selections
+
+Scenario: Entering bad data
+
+Scenario: Adding coupon before adding an item
+  Given the shopping cart is empty
+  When I apply the coupon 
+  And click update
+  Then I should see an error message
+
+Scenario: Deleting items from empty cart
+  Given the shopping cart is empty
+  And I click -
+  Then I should see an error message
+
