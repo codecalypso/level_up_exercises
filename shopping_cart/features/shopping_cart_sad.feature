@@ -1,5 +1,6 @@
-bad test -
-sad test -
+happy test/golden path => produces an expected output
+bad test => shows the system when fed absolute rubbish
+sad test => possible failure/shows that things fail when they should
 
 applying coupon before purchase
 requesting more than what's what's available
@@ -19,5 +20,6 @@ Scenario: Adding coupon before adding an item
 Scenario: Deleting items from empty cart
   Given the shopping cart is empty
   And I click -
-  Then I should see an error message
+  Then I should see an err
+  or message
 
