@@ -24,7 +24,7 @@ Scenario: Remove Item From Cart
 Scenario: Change Quantity
   Given I am on the shopping cart page
   And I have five cans of beans
-  And I type 6 in the quanity field
+  And I type 6 in the quantity field
   And I click update cart
   Then the cart should have six cans
 
@@ -39,7 +39,7 @@ Scenario: Add Coupons
   Given I am on the shopping cart page
   And I type in the coupon code
   When I click apply
-  And I clik update order
+  And I click update order
   Then the total should reflect the coupon difference
 
 Scenario: Expired Coupons
@@ -50,14 +50,12 @@ Scenario: Expired Coupons
   Then I should see an error message
 
 Scenario: View Shipping Estimates
-  Given
-  When
-  Then
+  Given I on the shopping cart page
+  When I type in my address
+  And I click Get Estimate
+  Then I should the shipping estimates
 
 Scenario: Redirect to item page
   Given
   When
   Then
-
-  #sad
-  #bad
