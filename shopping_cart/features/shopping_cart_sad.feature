@@ -19,6 +19,9 @@ Scenario: Invalid Quantity Change
 
 Scenario: Adding Invalid Info For Shipping Estimates
   Given I am on the shopping cart page
-  When I type in an invalid zipcode
+  When I type in 1984 n Blueberry Street in the address field
+  And I type in Neverland in the city field
+  And I type " " in the state field
+  And I type 123456 in the zipcode field
   And I click Get Estimate
   Then I should see an error message
