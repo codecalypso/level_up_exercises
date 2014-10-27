@@ -15,8 +15,8 @@ Scenario: Add Item to Cart
   Then the cart should should have ice cream
 
 Scenario: Remove Item From Cart
-  Given I am on the shopping cart page
-  When I select grits
+  Given I am on the shopping cart page and I have grits
+  And I select grits
   And I click delete
   Then the cart should not have grits
 
@@ -27,13 +27,6 @@ Scenario: Change Quantity
   And I click update cart
   Then the cart should have six cans
 
-Scenario: Delete Item From Cart
-  Given I am on the shopping cart page
-  And I have one bag of sugar
-  When I click the delete button
-  And I click update cart
-  Then the cart should not have sugar
-
 Scenario: Add Coupons
   Given I am on the shopping cart page
   And I type in the coupon code
@@ -41,20 +34,10 @@ Scenario: Add Coupons
   And I click update order
   Then the total should reflect the coupon difference
 
-Scenario: Expired Coupons
-  Given I am on the shopping cart page
-  And I type in the coupon code
-  When I click apply
-  And I click update order
-  Then I should see an error message
 
 Scenario: View Shipping Estimates
   Given I on the shopping cart page
-  When I type Stacy Mullins in the name field
-  And I type in 1210 w Thorndale in the address field
-  And I type Chicago in the city field
-  And I select IL as the state
-  And I type 60660 in the zipcode field
+  When I enter valid shipping address
   And I click Get Estimate
   Then I should see the shipping estimates
 

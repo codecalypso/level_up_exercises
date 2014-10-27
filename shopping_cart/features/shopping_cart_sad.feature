@@ -23,16 +23,10 @@ Scenario: Adding Invalid Info For Shipping Estimates
   And I click Get Estimate
   Then I should see an error message
 
-Scenario: Adding Invalid Info For Shipping Estimates
+Scenario: Expired Coupons
   Given I am on the shopping cart page
-  When I type St in the name field
-  And I click Get Estimate
+  And I type in an expired coupon code
+  When I click apply
+  And I click update order
   Then I should see an error message
-
-Scenario: Adding Invalid Info For Shipping Estimates
-  Given I am on the shopping cart page
-  And I type 6066000 in the zipcode field
-  And I click Get Estimate
-  Then I should see an error message
-
 
