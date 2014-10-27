@@ -1,8 +1,7 @@
 Feature:
   As an online shopper
-  I want to start buying groceries
-  and add them to a virtual
-  shopping cart.
+  I want to add items to a shopping cart
+  So that I can buy groceries.
 
 Scenario: Empty Cart
   Given I am on the shopping cart page
