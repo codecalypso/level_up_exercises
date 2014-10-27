@@ -11,7 +11,7 @@ Scenario: Empty Cart
 Scenario: Add Item to Cart
   Given I am on the frozen foods page
   When I select ice cream
-  Add I click add to cart
+  And I click add to cart
   Then the cart should should have ice cream
 
 Scenario: Remove Item From Cart
