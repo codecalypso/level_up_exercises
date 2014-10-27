@@ -12,16 +12,27 @@ Scenario: Adding coupon before adding an item
 
 Scenario: Invalid Quantity Change
   Given I am on the shopping cart page
-  And I have five cans of beans
+  And I have five cans of beans in the cart
   And I type 6 in the quantity field
   And I click update cart
   Then the cart should have six cans
 
 Scenario: Adding Invalid Info For Shipping Estimates
   Given I am on the shopping cart page
-  When I type in 1984 n Blueberry Street in the address field
-  And I type in Neverland in the city field
-  And I type " " in the state field
-  And I type 123456 in the zipcode field
+  When I type Neverland in the city field
   And I click Get Estimate
   Then I should see an error message
+
+Scenario: Adding Invalid Info For Shipping Estimates
+  Given I am on the shopping cart page
+  When I type St in the name field
+  And I click Get Estimate
+  Then I should see an error message
+
+Scenario: Adding Invalid Info For Shipping Estimates
+  Given I am on the shopping cart page
+  And I type 6066000 in the zipcode field
+  And I click Get Estimate
+  Then I should see an error message
+
+

@@ -50,10 +50,12 @@ Scenario: Expired Coupons
 
 Scenario: View Shipping Estimates
   Given I on the shopping cart page
-  When I type in 1210 w Thorndale in the address field
+  When I type Stacy Mullins in the name field
+  And I type in 1210 w Thorndale in the address field
   And I type Chicago in the city field
-  And I type IL in the state field
+  And I select IL as the state
   And I type 60660 in the zipcode field
+  And I click Get Estimate
   Then I should see the shipping estimates
 
 Scenario: Redirect to Item Page
