@@ -42,6 +42,6 @@ Scenario: View Shipping Estimates
   Then I should see the shipping estimates
 
 Scenario: Redirect to Item Page
-  Given
-  When
-  Then
+  Given I am on the shopping cart page
+  When I click on ice cream
+  Then I should be back on the frozen food page
