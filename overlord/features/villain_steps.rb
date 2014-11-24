@@ -1,7 +1,7 @@
 require_relative "../bomb"
 
 Given /^the password is (\d+)$/ do |code|
-  @bomb = Bomb.new(code.to_i)
+  @bomb = Bomb.new
 end
 
 Given /^the bomb is inactive/ do
@@ -9,7 +9,7 @@ Given /^the bomb is inactive/ do
 end
 
 When /^I type (\d+)$/ do |code|
-  @bomb.enter_code(code.to_i)
+  @bomb.activate(code.to_i)
 end
 
 And /^I press activate/ do

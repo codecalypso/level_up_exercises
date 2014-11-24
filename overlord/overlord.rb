@@ -6,7 +6,7 @@ require "shotgun"
 require_relative "bomb"
 
 def bomb
-  session[:bomb] ||= Bomb.new 
+  session[:bomb] ||= Bomb.new
 end
 
 enable :sessions
@@ -21,14 +21,13 @@ end
 post "/activate" do
   code = params[:activation_code]
   if valid_code?(code)
-    bomb = bomb
-    bomb.enter_code(code.to_i)
-    bomb.activate
-     @bomb = session[:bomb]
+    @bomb = bomb
+    bomb.activate(code.to_i)
+    @bomb = session[:bomb]
     if bomb.active?
       erb :activated
     else
-      erb :inactive
+      erb :inactivate
     end
   else
     @bomb = bomb
@@ -39,21 +38,20 @@ end
 post "/deactivate" do
   code = params[:deactivation_code]
   if valid_code?(code)
-  bomb = bomb
-  bomb.enter_code(code.to_i)
-  bomb.deactivate
-     @bomb = session[:bomb]
-     if bomb.exploded?
-        erb :exploded
-     elsif !bomb.active
-        erb :inactive
-      else
-        erb :activated
-     end
-  else
     @bomb = bomb
-    erb :activated
-  end
+    bomb.deactivate(code.to_i)
+    @bomb = session[:bomb]
+    if bomb.exploded?
+      erb :exploded
+    elsif !bomb.active
+      erb :inactive
+    else
+      erb :activated
+    end
+    else
+      @bomb = bomb
+      erb :activated
+    end
   end
 
 def valid_code?(code)
