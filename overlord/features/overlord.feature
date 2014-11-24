@@ -41,9 +41,9 @@ Scenario: Third Deactivation Attempt
 
 Scenario: Non-Numeric Deactivation 
   Given I am on the activate page
-  And the password is 0000
   When I type in password
-  And I press deactivate
+  And I click deactivate
+  And I dump the page
   Then the bomb should be active
 
 Scenario: Code is More Than Four Characters
@@ -51,6 +51,6 @@ Scenario: Code is More Than Four Characters
   And the password is 0000
   When I type in 00000
   And I dump the page
-  And I press deactivate
+  And I click deactivate
   Then the bomb should be active
 

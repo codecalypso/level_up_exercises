@@ -27,7 +27,7 @@ post "/activate" do
     if bomb.active?
       erb :activated
     else
-      erb :inactivate
+      erb :inactive
     end
   else
     @bomb = bomb

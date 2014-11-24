@@ -31,7 +31,8 @@ class Bomb
     @exploded = true
     @active = false
   end
-
+   
+  private
   def increment_attempts
     @failed_attempts += 1
     explode if @failed_attempts >= 3
