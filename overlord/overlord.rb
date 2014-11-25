@@ -51,9 +51,16 @@ post "/deactivate" do
     else
       @bomb = bomb
       erb :activated
-    end
   end
-
-def valid_code?(code)
-  /\A[0-9]{4}\Z/.match(code)
 end
+
+def pending_name
+  code = params[:activation_code]
+  code
+  @bomb = bomb
+  bomb.activate(code.to_i)
+  @bomb = session[:bomb]
+end
+
+
+
