@@ -4,8 +4,8 @@ class Bomb
   alias_method :active?, :active
   alias_method :exploded?, :exploded
 
-  ACTIVATION_CODE = 2342
-  DEACTIVATION_CODE = 0000
+  ACTIVATION_CODE = "2342"
+  DEACTIVATION_CODE = "0000"
 
   def initialize
     @activation_code = ACTIVATION_CODE
@@ -16,11 +16,11 @@ class Bomb
   end
 
   def activate(attempt)
-    @active = true if attempt == @activation_code
+    @active = true if valid_code?(attempt) == @activation_code
   end
 
   def deactivate(attempt)
-    if attempt == @deactivation_code
+    if valid_code?(attempt) == @deactivation_code
       @active = false
     else
       increment_attempts
@@ -36,5 +36,10 @@ class Bomb
   def increment_attempts
     @failed_attempts += 1
     explode if @failed_attempts >= 3
+  end
+
+  def valid_code?(code)
+    regex =  /\A[0-9]{4}\Z/
+    regex.match(code) ? code : false
   end
 end
