@@ -9,6 +9,15 @@ def bomb
   session[:bomb] ||= Bomb.new
 end
 
+def pending_name(options)
+  options[:]
+  code = options
+  if code
+  @bomb = bomb
+  bomb.activate(code)
+  @bomb = session[:bomb]
+end
+
 enable :sessions
 set :port, 9393
 set :bind, "0.0.0.0"
@@ -19,11 +28,7 @@ get "/" do
 end
 
 post "/activate" do
-  code = params[:activation_code]
-  if valid_code?(code)
-    @bomb = bomb
-    bomb.activate(code.to_i)
-    @bomb = session[:bomb]
+   pending_name(params[:activation_code])
     if bomb.active?
       erb :activated
     else
@@ -36,11 +41,7 @@ post "/activate" do
 end
 
 post "/deactivate" do
-  code = params[:deactivation_code]
-  if valid_code?(code)
-    @bomb = bomb
-    bomb.deactivate(code.to_i)
-    @bomb = session[:bomb]
+    pending_name(params[:deactivation_code])
     if bomb.exploded?
       erb :exploded
     elsif !bomb.active
@@ -53,14 +54,4 @@ post "/deactivate" do
       erb :activated
   end
 end
-
-def pending_name
-  code = params[:activation_code]
-  code
-  @bomb = bomb
-  bomb.activate(code.to_i)
-  @bomb = session[:bomb]
-end
-
-
 
