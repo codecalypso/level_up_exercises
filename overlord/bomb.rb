@@ -26,20 +26,21 @@ class Bomb
       increment_attempts
     end
   end
+  
+  private
 
-  def explode
+   def explode
     @exploded = true
     @active = false
   end
-   
-  private
+
   def increment_attempts
     @failed_attempts += 1
     explode if @failed_attempts >= 3
   end
 
   def valid_code?(code)
-    regex =  /\A[0-9]{4}\Z/
+    regex = /\A[0-9]{4}\Z/
     regex.match(code) ? code : false
   end
 end

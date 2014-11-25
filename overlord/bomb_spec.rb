@@ -52,25 +52,11 @@ describe "#new" do
   end
 end
 
-
 describe "#activate" do
   let(:bomb) { Bomb.new }
 
   it"should return bomb state" do
     bomb.activate("2342").should eql true
-  end
-
-  xit"should only accept digits" do
-    bomb.activate("hello").should eql false
-  end
-
-  xit"should only accept four numerical digits" do
-    expect bomb.activate(code).respond.to(valid_code?)
-    # wth is going on, why is this failing?
-  end
-
-  xit"raises an error with garbage parameters"do
-    expect(bomb.activate("hello")).to raise_error
   end
 end
 
