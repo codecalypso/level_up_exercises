@@ -9,9 +9,8 @@ def bomb
   session[:bomb] ||= Bomb.new
 end
 
-def pending_name(options)
-  options[:]
-  code = options
+def pending_name(params)
+  code = params[:status]
   if code
   @bomb = bomb
   bomb.activate(code)
@@ -28,7 +27,7 @@ get "/" do
 end
 
 post "/activate" do
-   pending_name(params[:activation_code])
+   pending_name(:activation_code)
     if bomb.active?
       erb :activated
     else
@@ -41,7 +40,7 @@ post "/activate" do
 end
 
 post "/deactivate" do
-    pending_name(params[:deactivation_code])
+    pending_name(:deactivation_code)
     if bomb.exploded?
       erb :exploded
     elsif !bomb.active
@@ -54,4 +53,3 @@ post "/deactivate" do
       erb :activated
   end
 end
-
