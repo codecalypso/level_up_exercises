@@ -5,51 +5,41 @@ require "erb"
 require "shotgun"
 require_relative "bomb"
 
-def bomb
-  session[:bomb] ||= Bomb.new
-end
-
-def pending_name(params)
-  code = params[:status]
-  if code
-  @bomb = bomb
-  bomb.activate(code)
-  @bomb = session[:bomb]
-end
-
 enable :sessions
 set :port, 9393
 set :bind, "0.0.0.0"
 
 get "/" do
-  @bomb = bomb
-  erb :inactive
-end
+   bomb
+   bomb_status
+ end
 
 post "/activate" do
-   pending_name(:activation_code)
-    if bomb.active?
-      erb :activated
-    else
-      erb :inactive
-    end
+  bomb
+  code = params[:activation_code]
+  bomb.activate(code) if code
+  bomb_status
+end
+
+post "/deactivate" do
+  bomb
+  code = params[:deactivation_code]
+  bomb.deactivate(code) if code
+  bomb_status
+end
+
+private
+
+def bomb_status
+  if bomb.exploded?
+    erb :exploded
+  elsif bomb.active?
+    erb :activated
   else
-    @bomb = bomb
     erb :inactive
   end
 end
 
-post "/deactivate" do
-    pending_name(:deactivation_code)
-    if bomb.exploded?
-      erb :exploded
-    elsif !bomb.active
-      erb :inactive
-    else
-      erb :activated
-    end
-    else
-      @bomb = bomb
-      erb :activated
-  end
+def bomb
+  session[:bomb] || Bomb.new
 end
