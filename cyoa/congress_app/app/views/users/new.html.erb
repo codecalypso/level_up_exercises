@@ -1,0 +1,10 @@
+  
+  <%=form_for(@user) do |f|%>
+  <%=f.label :name%>
+  <%=t.textfield :name%>
+  <%=f.label :email%>
+  <%= f.textfield :email%>
+  <%=f.label :emailconfirmation%>
+  <%=f.textfield :emailconfirmation%>
+  <%=f.submit %>
+  <% end %>
