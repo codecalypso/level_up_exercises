@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
    $('.menu li').click(function(){
      $(".menu li").removeClass("float-bar");
      $(this).addClass("float-bar");
