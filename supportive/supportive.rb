@@ -13,9 +13,13 @@ class BlagPost
       hash[key.to_sym] = value
       hash
     end
+    methods_on_boot(args)
+  end
+
+  def methods_on_boot(args)
+    set_blag_info(args)
     set_author_presence(args)
     @categories = category_filter(args)
-    set_blag_info(args)
   end
 
   def set_blag_info(args)
@@ -25,15 +29,15 @@ class BlagPost
   end
 
   def set_author_presence(args)
-    if args[:author] != '' && args[:author_url] != ''
+    if args[:author] && args[:author_url]
       @author = Author.new(args[:author], args[:author_url])
     end
   end
   
   def category_filter(args)
     if args[:categories]
-        args[:categories].reject do |category|
-        DISALLOWED_CATEGORIES.include? category ||= []
+      args[:categories].reject do |category|
+      category.in?(DISALLOWED_CATEGORIES)
       end
     end
   end
@@ -51,17 +55,12 @@ class BlagPost
 
   def category_list
     return "" if categories.empty?
-    label = categories.length == 1 ? "Category" : "Categories"
-    label + ": " +  (categories.map { |cat| as_title(cat) }).to_sentence
-  end  
-
-  def as_title(string)
-    string = String(string)
-    words = string.titleize
+    label = categories.length == 1 ? "Category" : "Category".pluralize
+    label + ": " + categories.map { |cat| String(cat).titleize}.to_sentence
   end
 
   def commenters
-    return '' unless comments_allowed? || comments.length > 0    
+    return '' unless comments_allowed? || comments.length > 0
     ordinal = comments.length.ordinalize
     "You will be the #{ordinal} commenter"
   end
