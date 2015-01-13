@@ -8,7 +8,6 @@ body {
 }
 /*BANNER CONTENTS*/
 
-
  .container{
   display: none;
   width: 600px;
@@ -239,11 +238,13 @@ div .pmail-search {
   position: absolute;
   top:0px;
   left: 23px;
+  cursor: pointer; cursor: hand;
  }
 .more-button {
   left: 315px;
   margin-bottom: 15px;
   margin-left: 50px;
+  cursor: pointer; cursor: hand;
 }
 
 
@@ -251,6 +252,7 @@ div .pmail-search {
   left: 165px;
   margin-bottom: 5px;
   margin-left: 10px;
+  cursor: pointer; cursor: hand;
 }
 
 .all-button{
@@ -284,12 +286,14 @@ span.morespan{
   text-shadow: 0 1px 1px rgba(0,0,0,0.2);
   width: 55px;
   position: absolute;
-  top: 70;
+  top: 70px;
   right: 50px;
   background-repeat:no-repeat;
   background-position: center;
   z-index: 1;
+  cursor: pointer; cursor: hand;
  }
+
  .settings-button img{
   margin: 5px;
  }
@@ -300,7 +304,7 @@ span.morespan{
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
   position: absolute;
-  top: 70;
+  top: 70px;
   right: 149px;
   height: 30px;
   text-shadow: 0 1px 1px rgba(0,0,0,0.2);
@@ -322,7 +326,7 @@ span.morespan{
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   position: absolute;
-  top: 70;
+  top: 70px;
   right: 105px;
   height: 30px;
   margin-right: 15px;
@@ -340,13 +344,14 @@ span.morespan{
   }
 
 .select:hover:after {
+  content: attr(data-role);
   background: black;
   color: white;
-  content: attr(data-role);
-  left: 16em;
-  padding: 10px;
+  padding:25px;
   position: absolute;
-  top: 10em;
+  top: 40px;
+  left: 5px;
+  z-index: 1px;
 }
 
 .refresh:hover:after {
@@ -581,3 +586,6 @@ li:hover{
 .footer-deets{
   margin-left: 95px;
 }
+
+
+

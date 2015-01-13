@@ -1,32 +1,42 @@
 $(function(){
+
    $('.menu li').click(function(){
      $(".menu li").removeClass("float-bar");
      $(this).addClass("float-bar");
-});
 
-$('.select-button').click(function(){
-  $(".boxmenu").toggle();
-});
+    });
 
-$('.more-button').click(function(){
-  $(".morebox").toggle();
-});
+    // $('.select-button').click(function(){
+    //   $(".boxmenu").toggle();
+    // });
 
-$('.mail-button').click(function(){
-  $(".mail-dropdown").toggle();
-});
+    // $('.more-button').click(function(){
+    //   $(".morebox").toggle();
+    // });
 
-
-$(".settings-button").click(function(){
-  $('.box').toggle();
-});
+    // $('.mail-button').click(function(){
+    //   $(".mail-dropdown").toggle();
+    // });
 
 
-$(".app-image").click(function(){
-  $('.app-wrapper').toggle();
+    // $(".settings-button").click(function(){
+    //   $('.box').toggle();
+    // });
+
+
+    // $(".app-image").click(function(){
+    //   $('.app-wrapper').toggle();
+    // });
+
+    // $(".search-dropdown-button").click(function(){
+    //   $('.container').toggle();
+    // });
+
+    $(".dropdown-button").click(function(){
+      $(this).find(".dropdown").toggle();
+    });
 });
 
-$(".search-dropdown-button").click(function(){
-  $('.container').toggle();
-});
-});
+
+
+

@@ -13,59 +13,59 @@
   <script src="//code.jquery.com/ui/1.11.2/j query-ui.js"></script>
 </head>
 <body>
-  
 
   <div class="banner">
-
-    <input type="text" class="banner-textbox"/>
+      <form>
+      <input type="text" class="banner-textbox"/>
  
 
     <div class="pmail-search">
     <span class="pepsi"></span>
-    </div> <!-- end of pmail-search -->
+    </div>
 
     <div class="search-dropdown-button">
       <div class="container">
 
-        <label>Search</label>
+        <label for="search">Search</label>
         <div class="container-button" id="allmail">All Mail</div>
         
     <div class="searchparams">
-      <label>From</label><br/>
-      <input type="text" name= "from"/><br/>
+      <label for="from">From</label>
+      <input type="text" name= "from"/>
 
-      <label>To</label><br/>
-      <input type="text" name= "to"/><br/>
+      <label for="to">To</label>
+      <input type="text" name= "to"/>
 
-      <label>Subject</label><br/>
-      <input type="text" name= "subject"/><br/>
+      <label for="subject">Subject</label>
+      <input type="text" name= "subject"/>
 
-      <label>Has the words</label><br/>
-      <input type="text" name= "hasthewords"/><br/>
+      <label for="hasthewords">Has the words</label>
+      <input type="text" name= "hasthewords"/>
 
-      <label>Doesn't have</label><br/>
+      <label for="doesnthave">Doesn't have</label>
       <input type="text" name= "doesnthave"/>
-    </div> <!-- end of searhparams -->
+    </form>
+    </div>
 
     <div class= "container-elements">
       <input type="checkbox" name= "hasattachment"/>
-      <label>Has attachment</label><br/>
+      <label for="hasattachment">Has attachment</label>
       <input type="checkbox" name= "dontincludechats"/>
-      <label> Don't include chats</label><br/>
-    </div> <!-- end of arrange -->
+      <label for="dontincludechats"> Don't include chats</label>
+    </div>
     
      <div class="container-elements">
-       <label>Size</label><div class="container-button" id="arrange">greater than</div>
+       <label for="size">Size</label><div class="container-button" id="arrange">greater than</div>
        <input type="text" name="mb" id="arrange"/>
        <div class="container-button" id="arrange">MB</div>
-     </div> <!-- end of arrange -->
+     </div>
     
     <div class="container-elements">
-      <label>Date within</label>
+      <label for="datewithin">Date within</label>
         <div class="container-button" id="arrange">1 day</div>
         <p id="arrange">of</p>
         <input type="text" id="arrange"/>
-    </div><!-- end of arrange -->
+    </div>
 
     <div class="container-button" id="query"></div>
     </div>
@@ -76,15 +76,15 @@
             <ul> <!-- TODO add href link -->
             <li><div><img src="img/search.png" height="61" width="63"/></div></li>
             <li><div><img src="img/mail.png" height="60" width="71"/></div></li>
-            <li><div><img src="img/drive.png" height="62" width="76"/></div></li><br/>
+            <li><div><img src="img/drive.png" height="62" width="76"/></div></li>
             <li><div><img src="img/calendar.png" height="70" width="83"/></div></li>
             <li><div><img src="img/groups.png" height="74" width="85" /></div></li>
             <li><div><img src="img/contacts.png" height="70" width="91"/></div></li>
             </ul>
-        </div><!--  end of app-wrapper -->
-      </div> <!-- end of app-image -->
+        </div>
+      </div>
    </div>
-  </div><!-- end of banner -->
+  </div>
 
 
   <div class="nav-banner">
@@ -97,9 +97,9 @@
         </ul>
      </div>
 
-    <div class="select-button all-button">
+    <div class="select-button all-button dropdown-button select" data-role="Select">
       <span class="checkbox"><input type="checkbox"/></span>
-        <div class="boxmenu">
+        <div class="boxmenu dropdown">
           <ul>
             <li><a href="#">All</a></li>
             <li><a href="#">Read</a></li>
@@ -108,15 +108,17 @@
             <li><a href="#">Starred</a></li>
             <li><a href="#">Unstarred</a></li>
           </ul>
-        </div> <!-- end of boxmenu -->
-    </div> <!-- end of select button -->
+        </div>
+    </div>
+
+
       <div class="refresh-button all-button" data-role="Refresh">
        
       <span class="refresh-image"></span>
       </div>
-      <div class="more-button all-button" data-role="More"><span class="morespan">More</span>
+      <div class="more-button all-button dropdown-button" data-role="More"><span class="morespan">More</span>
 
-        <div class="morebox">
+        <div class="morebox dropdown">
           <p>Mark all as read</p>
           <hr><p>Select messages to see</br> more actions</p>
         </div>
@@ -128,25 +130,25 @@
       <ul>
 
       <li>Display density:</li>
-      <li>&nbsp Comfortable(on larger displays)</li>
-      <li>&nbsp Cozy</li>
-      <li>&nbsp Compact</li>
+      <li>Comfortable(on larger displays)</li>
+      <li>Cozy</li>
+      <li>Compact</li>
       <hr>
 
-      <li>&nbsp Configure inbox</li>
+      <li> Configure inbox</li>
       <hr>
 
-      <li>&nbsp Settings</li>
-      <li>&nbsp Themes</li>
-      <li>&nbsp Send feedback</li>
-      <li>&nbsp Help</li>
+      <li>Settings</li>
+      <li>Themes</li>
+      <li>Send feedback</li>
+      <li>Help</li>
       </ul>
       </div>
 
       </div>
       <div class="older-button"><span class="older-image"></span></div>
       <div class="newer-button"><span class="newer-image"></span></div>
-  </div> <!-- end of nav-banner -->
+  </div>
     
   <nav class="menu">
     <button class="compose-button">COMPOSE</button>
@@ -168,14 +170,13 @@
       <div><span class="name">Stephenson, Robert L.</span><span class="subject">Poetry</span><span class="message">Thank you for purchasing my latest edition of</span><span class="timestamp">Sept 3</span></div>
       <div><span class="name">Beyonce</span><span class="subject">Concert</span><span class="message">Your reservations for June 2030 confirmed</span><span class="timestamp">Sept 3</span></div>
       <div><span class="name">Washington, Kerry</span><span class="subject">Scandal</span><span class="message">Explosive episode tonight, watch and find out</span><span class="timestamp">Sept 2</span></div>
-    </div> <!-- end of main-content -->
-  </div> <!-- end of main-parent -->
-
+    </div>
+  </div>
 </body>
 <div class = "footer">
   <div class="footer-deets">3% full <br/>Using 1.11 GB of your 30 GB</div>
   <div class="footer-deets">©2014 Google - <a href="#">Terms of Service</a> - Privacy Policy - <br/>Program Policies</div>
   <div class="footer-deets">Last account activity: 2 hours ago<br/>Details</div>
-</div> <!-- end of footer div -->
+</div>
 </html>
 
