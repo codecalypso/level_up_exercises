@@ -70,7 +70,7 @@ label{
   background-color: #4d90fe;
 }
 
-.banner {
+.navigation {
   background:url('../img/logo.png') no-repeat;
   background-color:#F2F2F0;
   background-repeat:no-repeat;
@@ -145,8 +145,8 @@ div .pmail-search {
 }
 
 .app-wrapper{
-  width: 320;
-  height: 255;
+  width: 292px;
+  height: 255px;
   display: none;
   border: 1px solid #c9c9c9;
   position: absolute;
@@ -154,6 +154,65 @@ div .pmail-search {
   right:5px;
   background-color: white;
   z-index: 1;
+}
+
+.search{
+background: url('https://ssl.gstatic.com/gb/images/v1_fd3cfc85.png');
+width: 70px;
+height:85px;
+position:absolute;
+background-position: 10px -184px;
+top:10px;
+}
+
+.mail{
+background: url('https://ssl.gstatic.com/gb/images/v1_fd3cfc85.png');
+width: 70px;
+height: 75px;
+position:absolute; 
+background-position:0 400px;
+left: 80px;
+top: 20px;
+}
+
+.drive{
+background: url('https://ssl.gstatic.com/gb/images/v1_fd3cfc85.png');
+width: 70px;
+height: 75px;
+position:absolute;
+background-position:0 850px;
+left: 150px;
+top: 10px;
+}
+
+.calendar{
+background: url('https://ssl.gstatic.com/gb/images/v1_fd3cfc85.png');
+width: 55px;
+height:70px;
+position:absolute;
+background-position:0 350px;
+left:10px;
+top:90px;
+}
+
+.groups{
+background: url('https://ssl.gstatic.com/gb/images/v1_fd3cfc85.png');
+width: 75px;
+height: 75px;
+position:absolute;
+background-position:0 550px;
+left:80px;
+top:100px;
+}
+
+.contacts{
+background: url('https://ssl.gstatic.com/gb/images/v1_fd3cfc85.png');
+width: 65px;
+height: 65px;
+position:absolute;
+background-position:80px -180px;
+left: 140px;
+top:100px;
 }
 
 .app-wrapper li{
@@ -240,6 +299,7 @@ div .pmail-search {
   left: 23px;
   cursor: pointer; cursor: hand;
  }
+
 .more-button {
   left: 315px;
   margin-bottom: 15px;
@@ -579,6 +639,7 @@ li:hover{
   left: 263px;
   margin-left: -175px;
 }
+
 .footer div{
   display: inline-block;
  }
