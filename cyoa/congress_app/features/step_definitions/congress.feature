@@ -15,7 +15,6 @@ Given I am signed in
 When I click the favorite button
 Then I should expect to receive updates via email
 
-
 Scenario: Filter deeds
 Given I am on the main page
 When I click congressmen
@@ -29,3 +28,8 @@ Then I should be on the senate page
 
 When I click house person
 Then I should be on the house page
+
+
+Scenario: Invalid Query
+
+Scenario: Blank Query
