@@ -1,5 +1,11 @@
+Feature: User Registration
+In order to access the website
+As a user
+I want to sign up and be
+be able to login thereafter
 
-Happy Trail
+
+@HappyTrail
 
 Scenario: Sign In
 Given I have entered my information
@@ -16,7 +22,7 @@ Given I am signed in
 When I click Sign Out
 Then I should see Sign In
 
-Happy Trail Inverse
+@HappyTrailInverse
 
 Scenario: Invalid Sign In
 Given I have entered invalid information
@@ -29,7 +35,7 @@ Given required field is blank
 When I click Sign Up
 Then I should see Name can't be blank
 
-Sad Trail
+@SadTrail
 
 Scenario: Sign In
 Given I have entered my information
@@ -41,7 +47,7 @@ Given I
 When I click Sign Up
 Then I should see You have successfully signed up
 
-Garbage/Bad Trail
+@Garbage/BadTrail
 
 Scenario: Sign Up
 Given all required fields have information

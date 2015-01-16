@@ -31,5 +31,6 @@ Then I should be on the house page
 
 
 Scenario: Invalid Query
-
-Scenario: Blank Query
+Given I am on the main page
+When I type in goat herder
+Then I should see There are no recent events tracked by the selected tracker
