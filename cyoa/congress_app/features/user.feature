@@ -13,8 +13,9 @@ When I click sign in
 Then I should see Sign Out
 
 Scenario: Sign Up
-Given all required fields have information
-When I click Sign Up
+Given I am on the signup page
+When I complete all fields
+And I click Sign Up
 Then I should see Registration email sent to myemail@domain.com
 
 Scenario: Sign Out

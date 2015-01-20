@@ -1,7 +1,7 @@
 class BillsController < ApplicationController
 
   def index
-    # @bill = Bills.all
+    @bill = Bills.all
   end
     
   def show
