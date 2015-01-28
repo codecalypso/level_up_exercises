@@ -31,7 +31,3 @@ end
 Then(/^I should see an error message$/) do
   expect(page).to have_content("Invalid email or password")
 end
-
-And(/^I dump the page/) do
-  puts body
-end
