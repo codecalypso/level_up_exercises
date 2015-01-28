@@ -1,22 +1,17 @@
-Feature: User Registration
-In order to access the website
+Feature: User Sign In
+In order to access my account
 As a user
-I want to sign up and be
-be able to login thereafter
+I want to sign in to the site
 
 
 @HappyTrail
 
 Scenario: Sign In
-Given I have entered my information
-When I click sign in
-Then I should see Sign Out
-
-Scenario: Sign Up
-Given I am on the signup page
-When I complete all fields
-And I click Sign Up
-Then I should see Registration email sent to myemail@domain.com
+Given I am on the signin page
+When I complete all fields for the signin page
+When I click login
+Then I dump the page
+Then I should see signout
 
 Scenario: Sign Out
 Given I am signed in

@@ -1,3 +1,16 @@
 // Place all the styles related to the Bills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.category{
+  font-weight:bold;
+}
+
+.container{
+  border: solid 1px #eee;
+}
+
+.container:nth-child(even) {
+    background: #eee;
+}
