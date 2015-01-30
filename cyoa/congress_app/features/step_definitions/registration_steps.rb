@@ -9,7 +9,6 @@ Given(/^I am on the signup page$/) do
   visit('/users/sign_up')
 end
 
-
 Given(/^I am already a user$/) do
   @user = FactoryGirl.create(:user)
 end
@@ -22,11 +21,9 @@ When(/^I enter my credentials$/) do
   signup_attempt(email: @user.email, password: @user.password, user_password_confirmation: @user.password)
 end
 
-
 Then(/^I should see an email error message$/)do
   expect(page).to have_content("Email is invalid")
 end
-
 
 Then(/^I should see confirmation that I am a user$/)do 
   expect(page).to have_content(" Welcome! You have signed up successfully.")
@@ -36,17 +33,20 @@ Then(/^I should see an alert that my email is in the system$/) do
   expect(page).to have_content("Email has already been taken")
 end
 
-
-Then(/^I should see message indicating that info missing$/) do
+Then(/^I should see message indicating that email missing$/) do
   expect(page).to have_content("Email can't be blank")
+end
+
+Then(/^I should see message indicating that password missing$/) do
+  expect(page).to have_content("Password can't be blank")
 end
 
 When (/^I type in a bad email$/)do
   signup_attempt(email: "smullins", password: "redbull32", user_password_confirmation: "redbull32")
 end
 
-When(/^I omit my password$/)do
-  signup_attempt(email: "smullins@enova.com", password: "", user_password_confirmation: "")
+When(/^I omit my email$/)do
+  signup_attempt(email: " ", password: "redbull32", user_password_confirmation: "redbull32")
 end
 
 When(/^I omit my password$/)do

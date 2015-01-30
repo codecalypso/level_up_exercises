@@ -17,11 +17,11 @@ Then I should see an email error message
 
 Scenario: Missing email
 When I omit my email
-Then I should see message indicating that info missing
+Then I should see message indicating that email missing
 
 Scenario: Missing password
 When I omit my password
-Then I should see message indicating that info missing
+Then I should see message indicating that password missing
 
 Scenario: Visitor currently in system
 Given I am already a user
