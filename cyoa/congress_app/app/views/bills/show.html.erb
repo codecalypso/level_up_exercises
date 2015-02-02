@@ -1,28 +1,4 @@
 
-<h1><%="Capitol Hill Bills" %></h1>
-<h2> TBD</h2>
 
-<% if user_signed_in?%>
-  Logged in as <%=current_user.email%>
-  <%=link_to "Sign out", destroy_user_session_path, method: :delete%>
-  <% else %>
-  <p> <%= link_to "Sign In", new_user_session_path%></p>
-  <p> <%= link_to "Register", new_user_registration_path %></p>
-  <%end%>
-
-<%= form_tag () do %>
-<%=text_field_tag(:search_string) %>
-<%=submit_tag "Search" %>
-<%end%>
-
-
-
-<%@results.each do|result|%>
-<div class="container">
- <p><span class="category">Title:</span> <%=result[:title] %><br/></p>
- <p><span class="category">Introduced On:</span> <%=result[:introduced_on]%></p>
- <br/>
-</div>
-<%end%>
-
-
+<p><span class="category">Title:</span> <%= result[:title], result %><br/></p>
+<p><span class="category">Introduced On:</span> <%=result[:introduced_on]%></p>
