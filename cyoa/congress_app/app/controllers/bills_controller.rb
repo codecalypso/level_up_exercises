@@ -10,7 +10,11 @@ class BillsController < ApplicationController
   end
 
   def show
-    @bills = Congress.bills["re"]
+     Congress.key = "1dec920d92b44e9b9219e925a987267c"
+    @bills = Congress.bills
+      @results = @bills["results"].select do |result|
+        result["bill_id"]
+    end
   end
 end
 

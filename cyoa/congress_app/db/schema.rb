@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115222926) do
+ActiveRecord::Schema.define(version: 20150202200330) do
 
   create_table "bills", force: true do |t|
     t.string   "bill_type"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150115222926) do
     t.date     "last_version_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "official_title"
+    t.integer  "bill_id"
   end
 
   create_table "users", force: true do |t|
