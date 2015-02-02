@@ -10,16 +10,16 @@
   <p> <%= link_to "Register", new_user_registration_path %></p>
   <%end%>
 
-<%= form_tag () do %>
-<%=text_field_tag(:search_string) %>
-<%=submit_tag "Search" %>
-<%end%>
+<%= form_tag(bills_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
 
 
 
-<%@results.each do|result|%>
+<%@bills.each do|result|%>
 <div class="container">
- <p><span class="category">Title:</span> <%=link_to result[:title], result %><br/></p>
+ <p><span class="category">Title:</span> <%=link_to result[:official_title], result %><br/></p>
  <p><span class="category">Introduced On:</span> <%=result[:introduced_on]%></p>
  <br/>
 </div>

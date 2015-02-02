@@ -20,3 +20,16 @@ div.alert{
 div.flash.success{  border: 2px solid green; color: green;}
 div.flash.error{  border: 2px solid red; color: red;}
 div.flash.notice {  border: 2px solid blue; color: blue;}
+
+a:link{
+  text-decoration: none;
+}
+
+
+a:visited{
+  text-decoration: none;
+}
+
+a:link{
+  color: black;
+}
