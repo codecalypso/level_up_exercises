@@ -1,6 +1,3 @@
 class Bill < ActiveRecord::Base
-
-  def self.search(query)
-    where("official_title like ?", "%#{query}%")
-  end
+  scope :search, -> (query)  {where("LOWER(official_title) like ?", "%#{query.downcase}%") if query.present?}
 end

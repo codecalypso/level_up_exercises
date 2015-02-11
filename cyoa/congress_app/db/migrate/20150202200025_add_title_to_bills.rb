@@ -1,5 +1,5 @@
 class AddTitleToBills < ActiveRecord::Migration
   def change
-    add_column :bills, :official_title, :string
+    add_column :bills, :official_title, :text
   end
 end

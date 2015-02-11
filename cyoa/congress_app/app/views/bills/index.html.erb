@@ -1,4 +1,3 @@
-
 <h1><%="Capitol Hill Bills" %></h1>
 <h2> TBD</h2>
 
@@ -15,6 +14,9 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<% if @bills.empty? %>
+<p>Sorry there is no bill matching that keyword, please try again </p>
+<% end %>
 
 
 <%@bills.each do|result|%>

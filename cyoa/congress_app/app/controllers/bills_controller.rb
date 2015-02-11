@@ -1,14 +1,10 @@
 class BillsController < ApplicationController
 
-  def index
-    if params[:search]
-     @bills = Bill.search(params[:search])
-   else
-     @bills = Bill.all
-   end
-  end
+	def index 
+		@bills = Bill.search(params[:search])	
+	end
 
-  def show
-    @bills = Bill.find(params[:id])
-  end
+	def show
+		@bills = Bill.find(params[:id])
+	end
 end
