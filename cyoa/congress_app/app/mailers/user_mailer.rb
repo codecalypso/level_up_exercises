@@ -1,8 +1,8 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
-
-  def bill_update_email()
-    @user = user
-    mail(:to => user.email, :subject => "New update on bill"
+  default from: "no-reply@example.com"
+   # user.email
+  def bill_update_email
+    # @user = user
+    mail (:to => "smullins10@gmail.com", :subject => "New update on bill")
   end
 end
